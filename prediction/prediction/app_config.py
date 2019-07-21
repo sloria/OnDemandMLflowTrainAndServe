@@ -1,4 +1,3 @@
-import logging
 from environs import Env
 
 env = Env()
@@ -14,6 +13,6 @@ training_service_config = {
 mlflow_models_mapping = env.json('MLFLOW_MODELS_MAPPING')
 service_config = {
     "service_name": env("SERVICE_NAME"),
-    "log_level": env.int("LOG_LEVEL", logging.INFO),
+    "log_level": env.log_level("LOG_LEVEL", "INFO"),
     "port": env.int("PORT", 80)
 }
